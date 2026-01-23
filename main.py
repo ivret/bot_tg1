@@ -129,7 +129,7 @@ def echo(message):
         return   # время не установлено — ничего не делаем
 
     schedule_deletion(message)
-
+уа
 bot.infinity_polling()
 
 
