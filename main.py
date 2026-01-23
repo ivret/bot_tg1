@@ -9,7 +9,6 @@ import asyncio
 
 queue_m = {}
 queue_time_chat = {}
-translator = Translator()
 bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -129,7 +128,13 @@ def echo(message):
         return   # время не установлено — ничего не делаем
 
     schedule_deletion(message)
-#//
+
+async def translate_text():
+    translator = Translator()
+    # Асинхронный вызов перевода
+    result = await translator.translate("что делать цуам", dest="en")
+    print(result.text)  # Теперь .text доступен
+
 bot.infinity_polling()
 
 
